@@ -9,7 +9,7 @@
       "email": "airywp@qq.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "require": {
     "PHP": ">=5.3.2"
   },
