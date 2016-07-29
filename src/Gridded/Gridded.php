@@ -7,5 +7,7 @@
  * Time: 15:16
  */
 class Gridded {
-
+	public static function createColumnBuilder() {
+		return new \Gridded\Kit\ColumnBuilder();
+	}
 }

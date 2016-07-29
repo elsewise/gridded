@@ -38,12 +38,11 @@ $gridded = new Grid();
 $gridded->setRequest("server.php");
 $gridded->configure("colModel", $columnBuilder->toArray());
 $gridded->configure("pager", "#pager2");
-
-
+$gridded->configure("height","400px");
+$gridded->configure("caption", "呵呵哒da");
 //$gridded->configure("sortname", "id");
 //$gridded->configure("viewrecords", TRUE);
 //$gridded->configure("sortorder", "asc");
-//$gridded->configure("caption", "呵呵哒da");
 
 ?>
 <script>

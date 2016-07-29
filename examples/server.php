@@ -8,6 +8,7 @@
 
 require_once "../src/Gridded/load.php";
 include_once "idiorm.php";
+include_once "SimpleModel.php";
 
 /**
  * Author: Elsewise Airy @wp

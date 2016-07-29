@@ -5,7 +5,8 @@
  * E-mail: airywp@qq.com
  * Date: 2016/7/27
  * Time: 8:59
+ * Model implements this make get grid easy
  */
 interface GriddedInterface {
-	public function griddedModel();
+	public function gridded();
 }

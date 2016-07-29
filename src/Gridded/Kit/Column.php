@@ -8,6 +8,7 @@ namespace Gridded\Kit;
  * Time: 19:37
  */
 class Column extends Basic {
+	private $_builder = NULL;
 
 	/**
 	 * @return array
@@ -30,5 +31,15 @@ class Column extends Basic {
 	public function setEditable($editable) {
 
 	}
+
+
+	protected function setBuilder($builder) {
+		$this->_builder = $builder;
+	}
+
+	public function backToBuilder() {
+		return $this->_builder;
+	}
+
 
 }
