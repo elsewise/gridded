@@ -13,13 +13,7 @@
 <script src="js/jquery.jqGrid.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <?php
-include_once "../src/Gridded/Kit/Basic.php";
-include_once "../src/Gridded/Kit/ColumnBuilder.php";
-include_once "../src/Gridded/Kit/Column.php";
-include_once "../src/Gridded/Kit/Basic.php";
-include_once "../src/Gridded/Grid.php";
-include_once "../src/Gridded/Gridded.php";
-
+require_once "../src/Gridded/load.php";
 
 use Gridded\Grid;
 use Gridded\Kit\Column;
@@ -57,6 +51,6 @@ $gridded->configure("pager", "#pager2");
 </script>
 <script>
 	jQuery("#list2").jqGrid(<?php echo $gridded->toJson() ?>);
-//	jQuery("#list2").jqGrid('navGrid', '#pager2', {edit: false, add: false, del: false});
+	//	jQuery("#list2").jqGrid('navGrid', '#pager2', {edit: false, add: false, del: false});
 </script>
 </html>

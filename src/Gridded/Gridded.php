@@ -8,15 +8,4 @@
  */
 class Gridded {
 
-	/** @var AdapterInterface */
-	public $adapter = NULL;
-
-	/**
-	 * Gridded constructor.
-	 *
-	 * @param AdapterInterface $adapter
-	 */
-	public function __construct(AdapterInterface $adapter = NULL) {
-		$this->adapter = $adapter;
-	}
 }

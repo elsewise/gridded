@@ -6,10 +6,7 @@
  * Time: 11:23
  */
 
-
-include_once "../vendor/autoload.php";
-include_once "../src/Gridded/Kit/Table.php";
-include_once "../src/Gridded/Kit/Row.php";
+require_once "../src/Gridded/load.php";
 include_once "idiorm.php";
 
 /**
