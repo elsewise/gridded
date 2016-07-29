@@ -9,12 +9,14 @@
       "email": "airywp@qq.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "require": {
     "PHP": ">=5.3.2"
   },
   "autoload": {
-    "Gridded\\": "src/Gridded",
-    "Gridded\\Kit\\": "/src/Gridded/Kit"
+    "psr-4": {
+      "Gridded\\": "src/Gridded",
+      "Gridded\\Kit\\": "/src/Gridded/Kit"
+    }
   }
 }
