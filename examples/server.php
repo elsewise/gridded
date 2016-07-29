@@ -10,6 +10,7 @@
 include_once "../vendor/autoload.php";
 include_once "../src/Gridded/Kit/Table.php";
 include_once "../src/Gridded/Kit/Row.php";
+include_once "idiorm.php";
 
 /**
  * Author: Elsewise Airy @wp
