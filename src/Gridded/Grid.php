@@ -1,4 +1,5 @@
 <?php
+namespace Gridded;
 use Gridded\Kit\Basic;
 
 /**
