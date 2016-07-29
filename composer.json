@@ -1,0 +1,20 @@
+{
+  "name": "elsewise/gridded",
+  "description": "maybe nothing here;",
+  "type": "library",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "elsewise",
+      "email": "airywp@qq.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "PHP": ">=5.3.2"
+  },
+  "autoload": {
+    "Gridded\\": "src/Gridded",
+    "Gridded\\Kit\\": "/src/Gridded/Kit"
+  }
+}
