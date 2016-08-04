@@ -30,7 +30,7 @@ class Col extends Basic {
 
 	function __call($name, $arguments) {
 		$class_name = __CLASS__;
-		if (in_array($name, Cols::$configurations)) {
+		if (in_array($name, Cols::getConfigurations())) {
 			$this->configure($name, $arguments[0]);
 			return $this;
 		} else {

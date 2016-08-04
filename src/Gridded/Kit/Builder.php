@@ -7,18 +7,19 @@ namespace Gridded\Kit;
  * Date: 2016/7/26
  * Time: 9:04
  */
-class ColBuilder {
+class Builder {
 
 	/** @var array Data Column Model List */
 	protected $_columns = array();
+	protected $_gird    = NULL;
 
 	/**
 	 * Generate a Builder
 	 *
-	 * @return ColBuilder
+	 * @return Builder
 	 */
 	public static function getInstance() {
-		return new ColBuilder();
+		return new Builder();
 	}
 
 	/**
@@ -34,18 +35,18 @@ class ColBuilder {
 	 * Create A Column Model
 	 *
 	 * @param string $column_name
-	 * @param array  $configures
+	 * @param array  $configuration
 	 *
 	 * @return Col
 	 */
-	public function create($column_name, $configures = array()) {
+	public function create($column_name, $configuration = array()) {
 		$column = new Col();
-		if (!empty($configures)) {
-			if (is_array($configures)) {
-				$column->set($configures);
+		if (!empty($configuration)) {
+			if (is_array($configuration)) {
+				$column->configure($configuration);
 			}
 		}
-		$column->set("name", $column_name);
+		$column->configure("name", $column_name);
 		$this->add($column);
 		return $column;
 	}

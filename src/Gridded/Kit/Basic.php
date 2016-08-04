@@ -91,20 +91,13 @@ abstract class Basic {
 		return $this->configures;
 	}
 
-	public function toJson() {
+	protected function toJson() {
 		return json_encode($this->toArray());
 	}
 
-	/**
-	 * alias of configure
-	 *
-	 * @param array|string $config_key
-	 * @param array|string $value
-	 *
-	 * @return $this
-	 */
-	public function set($config_key, $value = NULL) {
-		return $this->configure($config_key, $value);
+
+	function __toString() {
+		return $this->toJson();
 	}
 
 }

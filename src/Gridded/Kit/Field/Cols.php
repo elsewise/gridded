@@ -44,8 +44,10 @@ class Cols {
 	CONST XMLMAP        = "xmlmap";
 	CONST UNFORMAT      = "unformat";
 
-	public static $configurations = array(
-		"align", "classes", "datefmt", "defval", "editable", "editoptions", "editrules", "edittype", "fixed", "formoptions", "formatoptions", "formatter", "hidedlg", "hidden", "index", "jsonmap", "key", "label", "name", "resizable", "search", "searchoptions", "sortable", "sorttype", "stype", "surl", "width", "xmlmap", "unformat"
-	);
+	public static function getConfigurations() {
+		$ref    = new \ReflectionClass(__CLASS__);
+		$consts = $ref->getConstants();
+		return array_values($consts);
+	}
 
 }

@@ -17,9 +17,9 @@
 require_once "../src/Gridded/load.php";
 
 use Gridded\Grid;
-use Gridded\Kit\ColBuilder;
+use Gridded\Kit\Builder;
 
-$columnBuilder = new ColBuilder();
+$columnBuilder = new Builder();
 $columnBuilder->create("id")->label("主键")->sortable(TRUE);
 $columnBuilder->create("first_name")->sortable(FALSE);
 $columnBuilder->create("last_name");
@@ -37,12 +37,14 @@ $gridded->configure("caption", "呵呵哒da");
 //$gridded->configure("viewrecords", TRUE);
 //$gridded->configure("sortorder", "asc");
 
+var_dump(\Gridded\Kit\Field\Grids::getConfigurations());
+
 ?>
 <script>
 
 </script>
 <script>
-	jQuery("#list2").jqGrid(<?php echo $gridded->toJson() ?>);
+	jQuery("#list2").jqGrid(<?php echo $gridded ?>);
 	//	jQuery("#list2").jqGrid('navGrid', '#pager2', {edit: false, add: false, del: false});
 </script>
 </html>
