@@ -8,6 +8,6 @@
  */
 class Gridded {
 	public static function createColumnBuilder() {
-		return new \Gridded\Kit\ColumnBuilder();
+		return new \Gridded\Kit\ColBuilder();
 	}
 }

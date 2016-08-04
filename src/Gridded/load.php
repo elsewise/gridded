@@ -8,11 +8,13 @@
 
 
 include_once "Kit/Basic.php";
-include_once "Kit/ColumnBuilder.php";
-include_once "Kit/Column.php";
+include_once "Kit/ColBuilder.php";
+include_once "Kit/Col.php";
 include_once "Kit/Basic.php";
 include_once "Grid.php";
 include_once "Gridded.php";
 include_once "GriddedInterface.php";
 include_once "Kit/Table.php";
 include_once "Kit/Row.php";
+include_once "Kit/Field/Cols.php";
+include_once "Kit/Field/Grids.php";

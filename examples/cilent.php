@@ -17,11 +17,11 @@
 require_once "../src/Gridded/load.php";
 
 use Gridded\Grid;
-use Gridded\Kit\ColumnBuilder;
+use Gridded\Kit\ColBuilder;
 
-$columnBuilder = new ColumnBuilder();
-$columnBuilder->create("id")->label("主键");
-$columnBuilder->create("first_name");
+$columnBuilder = new ColBuilder();
+$columnBuilder->create("id")->label("主键")->sortable(TRUE);
+$columnBuilder->create("first_name")->sortable(FALSE);
 $columnBuilder->create("last_name");
 $columnBuilder->create("email");
 $columnBuilder->create("phone");
@@ -31,7 +31,7 @@ $gridded = new Grid();
 $gridded->setRequest("server.php");
 $gridded->configure("colModel", $columnBuilder->toArray());
 $gridded->configure("pager", "#pager2");
-$gridded->configure("height", "400px");
+$gridded->configure("height", 400);
 $gridded->configure("caption", "呵呵哒da");
 //$gridded->configure("sortname", "id");
 //$gridded->configure("viewrecords", TRUE);

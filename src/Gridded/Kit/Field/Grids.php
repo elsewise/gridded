@@ -1,17 +1,15 @@
 <?php
-namespace Gridded\Kit;
-
 /**
  * Author: Elsewise Airy @wp
  * E-mail: airywp@qq.com
  * Date: 2016/7/26
  * Time: 9:27
  */
-class Field {
 
-}
+namespace Gridded\Kit\Field;
 
-class GridFiled {
+
+class Grids {
 	CONST     URL         = "url";
 	CONST     DATATYPE    = "datatype";
 	CONST     MTYPE       = "mtype";
@@ -102,34 +100,3 @@ class GridFiled {
 }
 
 
-class ColumnFiled {
-	CONST ALIGN         = "align";
-	CONST CLASSES       = "classes";
-	CONST DATEFMT       = "datefmt";
-	CONST DEFVAL        = "defval";
-	CONST EDITABLE      = "editable";
-	CONST EDITOPTIONS   = "editoptions";
-	CONST EDITRULES     = "editrules";
-	CONST EDITTYPE      = "edittype";
-	CONST FIXED         = "fixed";
-	CONST FORMOPTIONS   = "formoptions";
-	CONST FORMATOPTIONS = "formatoptions";
-	CONST FORMATTER     = "formatter";
-	CONST HIDEDLG       = "hidedlg";
-	CONST HIDDEN        = "hidden";
-	CONST INDEX         = "index";
-	CONST JSONMAP       = "jsonmap";
-	CONST KEY           = "key";
-	CONST LABEL         = "label";
-	CONST NAME          = "name";
-	CONST RESIZABLE     = "resizable";
-	CONST SEARCH        = "search";
-	CONST SEARCHOPTIONS = "searchoptions";
-	CONST SORTABLE      = "sortable";
-	CONST SORTTYPE      = "sorttype";
-	CONST STYPE         = "stype";
-	CONST SURL          = "surl";
-	CONST WIDTH         = "width";
-	CONST XMLMAP        = "xmlmap";
-	CONST UNFORMAT      = "unformat";
-}
