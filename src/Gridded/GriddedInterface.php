@@ -8,5 +8,8 @@
  * Model implements this make get grid easy
  */
 interface GriddedInterface {
-	public function gridded();
+	/**
+	 * @return
+	 */
+	public function columns();
 }

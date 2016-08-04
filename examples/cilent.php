@@ -1,5 +1,6 @@
 <html>
 <head>
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/ui.jqgrid.css">
 	<link rel="stylesheet" href="css/jquery-ui.min.css">
 	<link rel="stylesheet" href="css/jquery-ui.theme.min.css">
@@ -9,25 +10,17 @@
 <div id="pager2"></div>
 </body>
 <script src="js/jquery-2.1.1.js"></script>
-<script src="i18n/grid.locale-cn.js"></script>
+<script src="i18n/grid.locale-en.js"></script>
 <script src="js/jquery.jqGrid.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <?php
 require_once "../src/Gridded/load.php";
 
 use Gridded\Grid;
-use Gridded\Kit\Column;
 use Gridded\Kit\ColumnBuilder;
 
-
-$a = new Column(array("name" => "id", "index" => "id", "sortable" => TRUE));
-$b = new Column(array("name" => "first_name", "index" => "first_name", "sortable" => TRUE));
-$c = new Column(array("name" => "last_name", "index" => "last_name", "sortable" => TRUE));
-$d = new Column(array("name" => "email", "sortable" => TRUE));
-$e = new Column(array("name" => "phone"));
-
 $columnBuilder = new ColumnBuilder();
-$columnBuilder->create("id");
+$columnBuilder->create("id")->label("主键");
 $columnBuilder->create("first_name");
 $columnBuilder->create("last_name");
 $columnBuilder->create("email");
@@ -38,7 +31,7 @@ $gridded = new Grid();
 $gridded->setRequest("server.php");
 $gridded->configure("colModel", $columnBuilder->toArray());
 $gridded->configure("pager", "#pager2");
-$gridded->configure("height","400px");
+$gridded->configure("height", "400px");
 $gridded->configure("caption", "呵呵哒da");
 //$gridded->configure("sortname", "id");
 //$gridded->configure("viewrecords", TRUE);

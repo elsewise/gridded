@@ -17,6 +17,13 @@ class Column extends Basic {
 		return array();
 	}
 
+	/**
+	 * Set Name,Label and Index
+	 *
+	 * @param string $name
+	 * @param string $label
+	 * @param string $index
+	 */
 	public function setName($name, $label = NULL, $index = NULL) {
 		$this->configure(ColumnFiled::NAME, $name);
 		if (!empty($label)) {
@@ -28,8 +35,21 @@ class Column extends Basic {
 	}
 
 
-	public function setEditable($editable) {
+	/**
+	 * Set editable flag for this column
+	 *
+	 * @param bool $editable
+	 *
+	 * @return $this
+	 */
+	public function editable($editable) {
+		$this->configure("editable", $editable);
+		return $this;
+	}
 
+	public function label($label) {
+		$this->configure("label", $label);
+		return $this;
 	}
 
 
