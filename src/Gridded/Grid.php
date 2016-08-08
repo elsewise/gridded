@@ -1,12 +1,26 @@
 <?php
-namespace Gridded;
-use Gridded\Kit\Basic;
-
 /**
  * Author: Elsewise Airy @wp
  * E-mail: airywp@qq.com
  * Date: 2016/7/24
  * Time: 17:12
+ */
+namespace Gridded;
+
+use Exception;
+use Gridded\Kit\Basic;
+use Gridded\Kit\Field\Grids;
+
+
+/**
+ * Class Grid
+ *
+ * @package Gridded
+ * @method $this loadonce(bool $loadOnce);
+ * @method $this sortorder(string $sortOrder);
+ * @method $this rowList(array $rowList);
+ * @method $this rowNum(int $rowNum);
+ * @method $this url(string $url);
  */
 class Grid extends Basic {
 
@@ -29,80 +43,14 @@ class Grid extends Basic {
 		);
 	}
 
-	/*fast configure*/
-	/**
-	 * configure url,data_type and request method
-	 *
-	 * @param string $url
-	 * @param string $data_type
-	 * @param string $method_type
-	 *
-	 * @return $this
-	 */
-	public function setRequest($url, $data_type = "json", $method_type = "post") {
-		$this->configure("url", $url);
-		$this->configure("datatype", $data_type);
-		$this->configure("mtype", $method_type);
-		return $this;
-	}
-
-
-	/**
-	 * set a array to configure how many chooses in a row select
-	 *
-	 * @param array(integer) $list
-	 *
-	 * @return $this
-	 */
-	public function setRowList(array $list) {
-		return $this->configure("rowList", $list);
-	}
-
-
-	/**
-	 * configure how line per page
-	 *
-	 * @see setRowList if you want to use param 2
-	 *
-	 * @param integer        $row
-	 * @param array(integer) $list
-	 *
-	 * @return $this
-	 */
-	public function setRow($row, array $list = NULL) {
-		if (empty($list)) {
-			$list = array(10, 20, 50, 100);
-		}
-		$this->setRowList($list);
-		return $this->configure("rowNum", $row);
-	}
-
-	/**
-	 * set a bool to configure whether load once or not
-	 *
-	 * @param boolean $once
-	 *
-	 * @return $this
-	 */
-	public function setLoadOnce($once) {
-		if ($once) {
-			$once = TRUE;
+	function __call($name, $arguments) {
+		$class_name = __CLASS__;
+		if (in_array($name, Grids::getConfigurations())) {
+			$this->configure($name, $arguments[0]);
+			return $this;
 		} else {
-			$once = FALSE;
+			throw new Exception("Call to undefined method {$class_name}::$name()");
 		}
-		return $this->configure("loadonce", $once);
-	}
-
-	/**
-	 * set a sort order ,default by data resource order
-	 *
-	 * @param $order
-	 *
-	 * @return $this
-	 */
-	public function setSortOrder($order) {
-		$order = strtolower($order);
-		return $this->configure("sortorder", $order);
 	}
 
 
