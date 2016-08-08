@@ -5,10 +5,10 @@
  * Date: 2016/7/24
  * Time: 17:12
  */
+namespace Gridded\Kit;
 
 use Exception;
 use Gridded\Kit\Field\Grids;
-
 
 /**
  * Class Grid
@@ -24,7 +24,6 @@ class Grid extends Basic {
 
 	const ORDER_ASC  = "ASC";
 	const ORDER_DESC = "DESC";
-
 
 	/**
 	 * @return array
@@ -50,6 +49,5 @@ class Grid extends Basic {
 			throw new Exception("Call to undefined method {$class_name}::$name()");
 		}
 	}
-
 
 }

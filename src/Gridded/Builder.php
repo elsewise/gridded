@@ -1,6 +1,9 @@
 <?php
 namespace Gridded;
 
+use Gridded\Kit\Col;
+use Gridded\Kit\Grid;
+
 /**
  * Author: Elsewise Airy @wp
  * E-mail: airywp@qq.com

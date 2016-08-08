@@ -14,37 +14,33 @@
 <script src="js/jquery.jqGrid.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <?php
+use Gridded\Kit\Grid;
+
 require_once "../src/Gridded/load.php";
 
-use Gridded\Grid;
-use Gridded\Kit\Builder;
+$builder = \Gridded\Gridded::createBuilder();
 
-$columnBuilder = new Builder();
-$columnBuilder->create("id")->label("主键")->sortable(TRUE);
-$columnBuilder->create("first_name")->sortable(FALSE);
-$columnBuilder->create("last_name");
-$columnBuilder->create("email");
-$columnBuilder->create("phone");
+$builder->create("id")->label("主键")->sortable(TRUE);
+$builder->create("first_name")->sortable(FALSE);
+$builder->create("last_name");
+$builder->create("email");
+$builder->create("phone");
 
 
 $gridded = new Grid();
-$gridded->setRequest("server.php");
-$gridded->configure("colModel", $columnBuilder->toArray());
+$gridded->url("server.php");
+$gridded->configure("colModel", $builder->toArray());
 $gridded->configure("pager", "#pager2");
-$gridded->configure("height", 400);
 $gridded->configure("caption", "呵呵哒da");
-//$gridded->configure("sortname", "id");
-//$gridded->configure("viewrecords", TRUE);
-//$gridded->configure("sortorder", "asc");
-
-var_dump(\Gridded\Kit\Field\Grids::getConfigurations());
-
+$gridded->configure("sortname", "id");
+$gridded->configure("viewrecords", TRUE);
+$gridded->configure("sortorder", "asc");
 ?>
 <script>
 
 </script>
 <script>
 	jQuery("#list2").jqGrid(<?php echo $gridded ?>);
-	//	jQuery("#list2").jqGrid('navGrid', '#pager2', {edit: false, add: false, del: false});
+	jQuery("#list2").jqGrid('navGrid', '#pager2', {edit: false, add: false, del: false});
 </script>
 </html>
