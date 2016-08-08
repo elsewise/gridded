@@ -5,10 +5,8 @@
  * Date: 2016/7/24
  * Time: 17:12
  */
-namespace Gridded;
 
 use Exception;
-use Gridded\Kit\Basic;
 use Gridded\Kit\Field\Grids;
 
 

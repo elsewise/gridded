@@ -1,5 +1,5 @@
 <?php
-namespace Gridded\Kit;
+namespace Gridded;
 
 /**
  * Author: Elsewise Airy @wp
