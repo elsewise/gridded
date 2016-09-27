@@ -14,11 +14,13 @@ use Gridded\Kit\Field\Grids;
  * Class Grid
  *
  * @package Gridded
- * @method $this loadonce(bool $loadOnce);
- * @method $this sortorder(string $sortOrder);
+ * @method $this loadOnce(bool $loadOnce);
+ * @method $this sortOrder(string $sortOrder);
  * @method $this rowList(array $rowList);
  * @method $this rowNum(int $rowNum);
  * @method $this url(string $url);
+ * @method $this hideGrid(bool $hide);
+ * @method $this hiddenGrid(bool $hidden);
  */
 class Grid extends Basic {
 
@@ -42,7 +44,10 @@ class Grid extends Basic {
 
 	function __call($name, $arguments) {
 		$class_name = __CLASS__;
-		if (in_array($name, Grids::getConfigurations())) {
+		if (in_array(strtolower($name), Grids::getConfigurations())) {
+			$this->configure(strtolower($name), $arguments[0]);
+			return $this;
+		} elseif (in_array($name, Grids::getConfigurations())) {
 			$this->configure($name, $arguments[0]);
 			return $this;
 		} else {

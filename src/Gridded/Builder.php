@@ -50,6 +50,7 @@ class Builder {
 			}
 		}
 		$column->configure("name", $column_name);
+		$column->editable(TRUE);
 		$this->add($column);
 		return $column;
 	}

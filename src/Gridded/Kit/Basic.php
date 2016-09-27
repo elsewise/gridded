@@ -60,6 +60,7 @@ abstract class Basic {
 				$this->configures[$config_key] = $value;
 			}
 		}
+		return $this;
 	}
 
 
@@ -92,7 +93,7 @@ abstract class Basic {
 	}
 
 	protected function toJson() {
-		return json_encode($this->toArray());
+		return json_encode($this->toArray(), JSON_PRETTY_PRINT);
 	}
 
 
