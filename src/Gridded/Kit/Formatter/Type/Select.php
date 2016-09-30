@@ -9,12 +9,16 @@
 namespace Gridded\Kit\Formatter\Type;
 
 
-class Select {
+use Gridded\Kit\Formatter\BasicType;
+
+class Select extends BasicType {
 
 
-	protected $special = array();
-	private   $keyName;
-	private   $valueName;
+	protected $options   = array();
+	protected $keyName   = NULL;
+	protected $valueName = NULL;
+
+	private $simple = TRUE;
 
 	/**
 	 * Select constructor.
@@ -24,9 +28,13 @@ class Select {
 	 * @param $valueName
 	 */
 	public function __construct($options, $keyName = "id", $valueName = "name") {
-		$this->special   = $options;
-		$this->keyName   = $keyName;
-		$this->valueName = $valueName;
+		$this->options = $options;
+		$rand          = array_rand($options);
+		if (is_array($options[$rand])) {
+			$this->simple    = FALSE;
+			$this->keyName   = $keyName;
+			$this->valueName = $valueName;
+		}
 	}
 
 	public function __toString() {
@@ -34,23 +42,29 @@ class Select {
 	}
 
 	public function addNullValue($name) {
-		$nullArray                   = array();
-		$nullArray[$this->keyName]   = NULL;
-		$nullArray[$this->valueName] = $name;
-		array_unshift($this->special, $nullArray);
+		if ($this->simple) {
+			$this->options["null"] = $name;
+		} else {
+			array_push($this->options, array($this->keyName => NULL, $this->valueName => $name));
+		}
 	}
 
 	public function add($key, $value) {
-		$nullArray                   = array();
-		$nullArray[$this->keyName]   = $key;
-		$nullArray[$this->valueName] = $value;
-		array_unshift($this->special, $nullArray);
+		if ($this->simple) {
+			$this->options[$key] = $value;
+		} else {
+			array_push($this->options, array($this->keyName => $key, $this->valueName => $value));
+		}
 	}
 
 	public function toString() {
 		$kvs = array();
-		foreach ($this->special as $item) {
-			array_push($kvs, "{$item[$this->keyName]}:{$item[$this->valueName]}");
+		foreach ($this->options as $key => $item) {
+			if ($this->simple) {
+				array_push($kvs, "{$key}:{$item}");
+			} else {
+				array_push($kvs, "{$item[$this->keyName]}:{$item[$this->valueName]}");
+			}
 		}
 		return implode(";", $kvs);
 	}
