@@ -21,11 +21,21 @@ use Gridded\Kit\Field\Grids;
  * @method $this url(string $url);
  * @method $this hideGrid(bool $hide);
  * @method $this hiddenGrid(bool $hidden);
+ * @method $this height(string $height);
+ * @method $this pager(string $pager);
+ * @method $this autoWidth(bool $isAuto);
+ * @method $this editUrl(string $url);
  */
 class Grid extends Basic {
 
 	const ORDER_ASC  = "ASC";
 	const ORDER_DESC = "DESC";
+
+	public function __construct($pager, array $configures = array()) {
+		parent::__construct($configures);
+		$this->pager($pager);
+	}
+
 
 	/**
 	 * @return array

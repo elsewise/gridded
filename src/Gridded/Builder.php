@@ -31,7 +31,8 @@ class Builder {
 	 * @param Col $column
 	 */
 	public function add(Col $column) {
-		array_push($this->_columns, $column);
+		$config                          = $column->toArray();
+		$this->_columns[$config['name']] = $column;
 	}
 
 	/**
@@ -43,20 +44,19 @@ class Builder {
 	 * @return Col
 	 */
 	public function create($column_name, $configuration = array()) {
-		$column = new Col();
+		$column = new Col($column_name);
 		if (!empty($configuration)) {
 			if (is_array($configuration)) {
 				$column->configure($configuration);
 			}
 		}
-		$column->configure("name", $column_name);
 		$column->editable(TRUE);
 		$this->add($column);
 		return $column;
 	}
 
 	public function toArray() {
-		return $this->_columns;
+		return array_values($this->_columns);
 	}
 
 }

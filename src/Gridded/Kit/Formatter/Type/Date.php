@@ -9,8 +9,17 @@
 namespace Gridded\Kit\Formatter\Type;
 
 
-class Date {
+use Gridded\Kit\Formatter\BasicType;
+
+class Date extends BasicType {
 	protected $srcformat;
 	protected $newformat;
 	protected $parseRe;
+
+	/**
+	 * @return string
+	 */
+	public function toString() {
+		// TODO: Implement toString() method.
+	}
 }

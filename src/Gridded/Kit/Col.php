@@ -9,6 +9,7 @@ namespace Gridded\Kit;
 
 use Exception;
 use Gridded\Kit\Field\Cols;
+use Gridded\Kit\Formatter\BasicType;
 
 define("GRIDDED_ALIGN_LEFT", "left");
 define("GRIDDED_ALIGN_CENTER", "center");
@@ -27,6 +28,10 @@ define("GRIDDED_ALIGN_RIGHT", "right");
  * @method $this align(string $align)
  */
 class Col extends Basic {
+	public function __construct($name, array $configures = NULL) {
+		parent::__construct($configures);
+		$this->configure("name", $name);
+	}
 
 	/**
 	 * @return array
@@ -49,8 +54,9 @@ class Col extends Basic {
 		}
 	}
 
-	function setFormatter($formatter) {
+	public function setFormatter($formatter) {
 		if (is_object($formatter)) {
+			/** @var BasicType $formatter */
 			$value = strtolower(basename(get_class($formatter)));
 			$this->configure("formatter", $value);
 			if ($value == "select") {
@@ -58,6 +64,17 @@ class Col extends Basic {
 				$this->configure("editoptions", array("value" => $value_Str));
 			}
 		}
+		return $this;
+	}
+
+	/**
+	 * @param EditOptions $options
+	 *
+	 * @return $this
+	 */
+	public function addEditOptions($options) {
+
+		$this->configure("editoptions", $options->toArray());
 		return $this;
 	}
 }
